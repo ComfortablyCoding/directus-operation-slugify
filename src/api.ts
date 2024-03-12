@@ -4,7 +4,7 @@ import type { SandboxOperationConfig } from "directus:api";
 import slugify from "./vendor/slugify";
 
 interface Options {
-  values: string;
+  value: string;
   separator?: string;
   lowercase?: boolean;
   decamelize?: boolean;
@@ -13,23 +13,21 @@ interface Options {
 const operation: SandboxOperationConfig = {
   id: "directus-operation-slugify",
   handler: ({
-    values,
+    value,
     separator = "-",
     lowercase = true,
     decamelize = true,
   }: Options) => {
-    if (!values) {
+    if (!value) {
       throw new Error("No values provided");
     }
 
-    const references = values.split(",");
-
-    if (references.find((ref) => ref === "undefined")) {
+    if (value.includes("undefined")) {
       throw new Error("All values must be defined");
     }
 
     return {
-      slug: slugify(references.join(" "), {
+      slug: slugify(value, {
         separator,
         lowercase,
         decamelize,

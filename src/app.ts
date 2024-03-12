@@ -4,26 +4,26 @@ export default defineOperationApp({
   id: "directus-operation-slugify",
   name: "Slugify",
   icon: "bolt",
-  description: "Slugify data",
-  overview: ({ values }) => [
+  description: "Slugify an input",
+  overview: ({ value }) => [
     {
-      label: "Values",
-      text: values,
+      label: "Value",
+      text: value,
     },
   ],
   options: [
     {
-      field: "values",
-      name: "Values",
+      field: "value",
+      name: "Value",
       type: "string",
       meta: {
         width: "full",
         interface: "input",
         required: true,
         options: {
-          placeholder: "{{ $trigger.payload.title }}",
+          placeholder: "order {{ $trigger.payload.title }}",
         },
-        note: "A comma seperated list of values to slugify. The values can be hardcoded and/or flow data variables such as **{{ $trigger.payload.title }}**",
+        note: "The value to slugify. Flow data variables such as **{{ $trigger.payload.title }}** are supported.",
       },
     },
     {
