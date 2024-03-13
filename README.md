@@ -42,7 +42,7 @@ Replace specific characters or words with alternatives (.e.g `&` -> `and`). Addi
 
 ## Output
 
-An onject containing the slugified input.
+An object containing the slugified input.
 
 ```json
 { "slug": "[slug]" }
