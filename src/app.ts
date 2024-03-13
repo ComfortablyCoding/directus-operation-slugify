@@ -51,8 +51,8 @@ export default defineOperationApp({
       },
     },
     {
-      field: "decamalize",
-      name: "Decamalize",
+      field: "decamelize",
+      name: "Decamelize",
       type: "boolean",
       meta: {
         width: "half",

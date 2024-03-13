@@ -32,7 +32,7 @@ The separator to use between words. Defaults to `-`.
 
 Convert all string lowercase. Defaults to `true`.
 
-### Decamalize
+### Decamelize
 
 Convert camelcase to separate words (e.g. `loremIpsum` -> `lorem ipsum`). Defaults to `true`
 
