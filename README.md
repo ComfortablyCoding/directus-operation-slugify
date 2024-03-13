@@ -32,7 +32,7 @@ The separator to use between words. Defaults to `-`.
 
 Convert all string lowercase. Defaults to `true`.
 
-### Decamalize
+### Decamelize
 
 Convert camelcase to separate words (e.g. `loremIpsum` -> `lorem ipsum`). Defaults to `true`
 
@@ -42,7 +42,7 @@ Replace specific characters or words with alternatives (.e.g `&` -> `and`). Addi
 
 ## Output
 
-An onject containing the slugified input.
+An object containing the slugified input.
 
 ```json
 { "slug": "[slug]" }
