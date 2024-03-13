@@ -1,18 +1,19 @@
 {
+  "$schema": "https://json.schemastore.org/package",
   "name": "directus-operation-slugify",
-  "description": "A slugify operation for Directus Flows",
+  "description": "A Directus slugify operation for Flows",
   "icon": "extension",
   "version": "0.1.0",
-  "keywords": [
-    "directus",
-    "directus-extension",
-    "directus-extension-operation",
-    "slugify"
-  ],
+  "license": "MIT",
   "type": "module",
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "directus-extension build",
+    "dev": "directus-extension build -w --no-minify",
+    "link": "directus-extension link"
+  },
   "directus:extension": {
     "type": "operation",
     "path": {
@@ -29,11 +30,31 @@
       "requestedScopes": {}
     }
   },
-  "scripts": {
-    "build": "directus-extension build",
-    "dev": "directus-extension build -w --no-minify",
-    "link": "directus-extension link"
+  "author": {
+    "name": "ComfortablyCoding",
+    "url": "https://github.com/ComfortablyCoding"
   },
+  "maintainers": [
+    {
+      "name": "ComfortablyCoding",
+      "url": "https://github.com/ComfortablyCoding"
+    }
+  ],
+  "homepage": "https://github.com/ComfortablyCoding/directus-operation-slugify#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ComfortablyCoding/directus-operation-slugify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ComfortablyCoding/directus-operation-slugify/issues"
+  },
+  "keywords": [
+    "directus",
+    "directus-extension",
+    "directus-extension-operation",
+    "slug",
+    "slugify"
+  ],
   "devDependencies": {
     "@directus/extensions-sdk": "11.0.1",
     "@types/node": "^20.11.26",
