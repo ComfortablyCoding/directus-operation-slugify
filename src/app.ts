@@ -99,7 +99,6 @@ export default defineOperationApp({
             },
           ],
         },
-        note: "Add custom replacement options",
       },
     },
   ],
