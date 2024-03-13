@@ -3,21 +3,31 @@
 import type { SandboxOperationConfig } from "directus:api";
 import slugify from "./vendor/slugify";
 
-interface Options {
+interface OperationOptions {
   value: string;
   separator?: string;
   lowercase?: boolean;
   decamelize?: boolean;
+  replacements?: ReplacementOption[];
+}
+
+interface ReplacementOption {
+  value: string;
+  replacement: string;
+}
+
+interface SlugifyOptions {
+  separator?: string;
+  lowercase?: boolean;
+  decamelize?: boolean;
+  customReplacements?: Array<[string, string]>;
 }
 
 const operation: SandboxOperationConfig = {
   id: "directus-operation-slugify",
-  handler: ({
-    value,
-    separator = "-",
-    lowercase = true,
-    decamelize = true,
-  }: Options) => {
+  handler: (options: OperationOptions) => {
+    const { value } = options;
+
     if (!value) {
       throw new Error("No values provided");
     }
@@ -26,12 +36,20 @@ const operation: SandboxOperationConfig = {
       throw new Error("All values must be defined");
     }
 
+    const slugifyOptions: SlugifyOptions = {
+      separator: options.separator ?? "^",
+      lowercase: options.lowercase ?? true,
+      decamelize: options.decamelize ?? true,
+    };
+
+    if (options.replacements) {
+      slugifyOptions.customReplacements = options.replacements.map(
+        ({ value, replacement }) => [value, replacement],
+      );
+    }
+
     return {
-      slug: slugify(value, {
-        separator,
-        lowercase,
-        decamelize,
-      }),
+      slug: slugify(value, slugifyOptions),
     };
   },
 };

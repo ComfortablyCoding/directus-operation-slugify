@@ -4,7 +4,7 @@ export default defineOperationApp({
   id: "directus-operation-slugify",
   name: "Slugify",
   icon: "bolt",
-  description: "Slugify an input",
+  description: "Slugify a string",
   overview: ({ value }) => [
     {
       label: "Value",
@@ -23,7 +23,7 @@ export default defineOperationApp({
         options: {
           placeholder: "order {{ $trigger.payload.title }}",
         },
-        note: "The value to slugify. Flow data variables such as **{{ $trigger.payload.title }}** are supported.",
+        note: "The value to slugify, flow data variables such as **{{ $trigger.payload.title }}** are supported.",
       },
     },
     {
@@ -60,6 +60,46 @@ export default defineOperationApp({
       },
       schema: {
         default_value: true,
+      },
+    },
+    {
+      field: "replacements",
+      name: "Custom Replacements",
+      type: "json",
+      meta: {
+        width: "full",
+        interface: "list",
+        options: {
+          fields: [
+            {
+              field: "value",
+              name: "Value",
+              type: "string",
+              meta: {
+                width: "half",
+                interface: "input",
+                required: true,
+                options: {
+                  placeholder: "&",
+                },
+              },
+            },
+            {
+              field: "replacement",
+              name: "Replacement",
+              type: "string",
+              meta: {
+                width: "half",
+                interface: "input",
+                required: true,
+                options: {
+                  placeholder: "and",
+                },
+              },
+            },
+          ],
+        },
+        note: "Add custom replacement options",
       },
     },
   ],
