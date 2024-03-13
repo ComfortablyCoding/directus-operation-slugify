@@ -37,7 +37,7 @@ const operation: SandboxOperationConfig = {
     }
 
     const slugifyOptions: SlugifyOptions = {
-      separator: options.separator ?? "^",
+      separator: options.separator ?? "-",
       lowercase: options.lowercase ?? true,
       decamelize: options.decamelize ?? true,
     };
