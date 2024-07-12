@@ -1,12 +1,12 @@
 /// <reference types="@directus/extensions/api.d.ts" />
 
 import type { SandboxOperationConfig } from "directus:api";
-import slugify from "./vendor/slugify";
+import slugify from "@sindresorhus/slugify";
 
 interface OperationOptions {
-  value: string;
+  value?: string;
   separator?: string;
-  lowercase?: boolean;
+  lowercase?: boolean;  
   decamelize?: boolean;
   replacements?: ReplacementOption[];
 }
@@ -29,7 +29,7 @@ const operation: SandboxOperationConfig = {
     const { value } = options;
 
     if (!value) {
-      throw new Error("No values provided");
+      throw new Error("No value provided");
     }
 
     if (value.includes("undefined")) {
@@ -44,7 +44,7 @@ const operation: SandboxOperationConfig = {
 
     if (options.replacements) {
       slugifyOptions.customReplacements = options.replacements.map(
-        ({ value, replacement }) => [value, replacement],
+        ({ value, replacement }) => [value, replacement]
       );
     }
 

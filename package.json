@@ -56,9 +56,13 @@
     "slugify"
   ],
   "devDependencies": {
+    "@directus/extensions": "^1.0.9",
     "@directus/extensions-sdk": "11.0.1",
     "@types/node": "^20.11.26",
     "typescript": "^5.4.2",
     "vue": "^3.4.21"
+  },
+  "dependencies": {
+    "@sindresorhus/slugify": "^2.2.1"
   }
 }
