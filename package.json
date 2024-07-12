@@ -3,7 +3,7 @@
   "name": "directus-operation-slugify",
   "description": "A Directus slugify operation for Flows",
   "icon": "extension",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "type": "module",
   "files": [
