@@ -57,10 +57,10 @@
   ],
   "devDependencies": {
     "@directus/extensions": "^1.0.9",
-    "@directus/extensions-sdk": "11.0.1",
-    "@types/node": "^20.11.26",
-    "typescript": "^5.4.2",
-    "vue": "^3.4.21"
+    "@directus/extensions-sdk": "11.0.9",
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.3",
+    "vue": "^3.4.31"
   },
   "dependencies": {
     "@sindresorhus/slugify": "^2.2.1"
