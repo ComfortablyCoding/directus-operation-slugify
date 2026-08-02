@@ -3,7 +3,7 @@ import { defineOperationApp } from "@directus/extensions-sdk";
 export default defineOperationApp({
   id: "directus-operation-slugify",
   name: "Slugify",
-  icon: "bolt",
+  icon: "link",
   description: "Slugify a string",
   overview: ({ value }) => [
     {
