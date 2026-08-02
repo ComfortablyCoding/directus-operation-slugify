@@ -6,7 +6,7 @@ import slugify from "@sindresorhus/slugify";
 interface OperationOptions {
   value?: string;
   separator?: string;
-  lowercase?: boolean;  
+  lowercase?: boolean;
   decamelize?: boolean;
   replacements?: ReplacementOption[];
 }
@@ -43,9 +43,15 @@ const operation: SandboxOperationConfig = {
     };
 
     if (options.replacements) {
-      slugifyOptions.customReplacements = options.replacements.map(
-        ({ value, replacement }) => [value, replacement]
-      );
+      // slugify replaces its built-in customReplacements wholesale, so re-add
+      // the default `&` -> `and` mapping. It's listed first so that a user
+      // replacement for the same value takes precedence (slugify is last-wins).
+      slugifyOptions.customReplacements = [
+        ["&", " and "],
+        ...options.replacements.map(
+          ({ value, replacement }) => [value, replacement] as [string, string],
+        ),
+      ];
     }
 
     return {

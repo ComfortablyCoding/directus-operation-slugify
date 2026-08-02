@@ -38,7 +38,7 @@ Convert camelcase to separate words (e.g. `loremIpsum` -> `lorem ipsum`). Defaul
 
 ### Custom Replacements
 
-Replace specific characters or words with alternatives (.e.g `&` -> `and`). Adding a leading and trailing space to the replacement will have it separated by dashes. Defaults to `'&'` -> `' and '`.
+Replace specific characters or words with alternatives (e.g. `&` -> `and`). Adding a leading and trailing space to the replacement will have it separated by dashes. The default `'&'` -> `' and '` mapping is always applied; any replacements you add are merged with it and take precedence.
 
 ## Output
 
