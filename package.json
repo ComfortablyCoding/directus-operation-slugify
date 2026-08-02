@@ -1,35 +1,20 @@
 {
   "$schema": "https://json.schemastore.org/package",
   "name": "directus-operation-slugify",
-  "description": "A Directus slugify operation for Flows",
-  "icon": "extension",
   "version": "0.2.2",
-  "license": "MIT",
-  "type": "module",
-  "files": [
-    "dist"
+  "description": "A Directus Flow operation that converts a string into a URL-safe slug, with multi-language support and custom replacements",
+  "keywords": [
+    "directus",
+    "directus-extension",
+    "directus-extension-operation",
+    "slug",
+    "slugify"
   ],
-  "scripts": {
-    "build": "directus-extension build",
-    "dev": "directus-extension build -w --no-minify",
-    "link": "directus-extension link"
+  "homepage": "https://github.com/ComfortablyCoding/directus-operation-slugify#readme",
+  "bugs": {
+    "url": "https://github.com/ComfortablyCoding/directus-operation-slugify/issues"
   },
-  "directus:extension": {
-    "type": "operation",
-    "path": {
-      "app": "dist/app.js",
-      "api": "dist/api.js"
-    },
-    "source": {
-      "app": "src/app.ts",
-      "api": "src/api.ts"
-    },
-    "host": "^10.10.0",
-    "sandbox": {
-      "enabled": true,
-      "requestedScopes": {}
-    }
-  },
+  "license": "MIT",
   "author": {
     "name": "ComfortablyCoding",
     "url": "https://github.com/ComfortablyCoding"
@@ -40,29 +25,51 @@
       "url": "https://github.com/ComfortablyCoding"
     }
   ],
-  "homepage": "https://github.com/ComfortablyCoding/directus-operation-slugify#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/ComfortablyCoding/directus-operation-slugify.git"
   },
-  "bugs": {
-    "url": "https://github.com/ComfortablyCoding/directus-operation-slugify/issues"
-  },
-  "keywords": [
-    "directus",
-    "directus-extension",
-    "directus-extension-operation",
-    "slug",
-    "slugify"
+  "files": [
+    "dist"
   ],
-  "devDependencies": {
-    "@directus/extensions": "^1.0.9",
-    "@directus/extensions-sdk": "11.0.9",
-    "@types/node": "^20.14.10",
-    "typescript": "^5.5.3",
-    "vue": "^3.4.31"
+  "type": "module",
+  "scripts": {
+    "build": "directus-extension build",
+    "dev": "directus-extension build -w --no-minify",
+    "link": "directus-extension link",
+    "test": "vitest run",
+    "lint": "oxlint",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check ."
   },
   "dependencies": {
-    "@sindresorhus/slugify": "^2.2.1"
+    "@sindresorhus/slugify": "^3.0.0"
+  },
+  "devDependencies": {
+    "@directus/extensions": "^4.0.2",
+    "@directus/extensions-sdk": "18.0.2",
+    "@types/node": "^22.20.1",
+    "oxfmt": "^0.61.0",
+    "oxlint": "^1.76.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10",
+    "vue": "^3.5.40"
+  },
+  "icon": "extension",
+  "directus:extension": {
+    "type": "operation",
+    "path": {
+      "app": "dist/app.js",
+      "api": "dist/api.js"
+    },
+    "source": {
+      "app": "src/app.ts",
+      "api": "src/api.ts"
+    },
+    "host": "^12.0.0",
+    "sandbox": {
+      "enabled": true,
+      "requestedScopes": {}
+    }
   }
 }
